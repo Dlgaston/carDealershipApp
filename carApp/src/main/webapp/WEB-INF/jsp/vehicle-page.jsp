@@ -13,11 +13,13 @@
 <body>
 	<header><a href="/">home</a></header>
 	<h1> ${vehiclelisting.make}</h1>
-	
+	<div>
 	<img src="${vehiclelisting.url}" width="500px" height="300px">
 	<c:if test="${vehiclelisting.ageOnLot >= 120 }">${discount}</c:if>
 	<c:if test="${vehiclelisting.ageOnLot < 120 }">${discount}</c:if>
-	
-	
+	</div>
+	<div>
+	<a href="buy-vehicle?id=${vehicle.id}">BUY VEHICLE</a>
+	</div>
 </body>
 </html>

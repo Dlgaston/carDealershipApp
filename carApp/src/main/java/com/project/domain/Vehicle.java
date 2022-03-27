@@ -22,6 +22,7 @@ public class Vehicle {
 	Integer ageOnLot;
 	String description;
 	String url;
+	boolean isBought = false;
 
 	public Vehicle(){
 		
@@ -121,7 +122,14 @@ public class Vehicle {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
 
+	public boolean getIsBought() {
+		return isBought;
+	}
+	public void setBought(boolean isBought) {
+		this.isBought = isBought;
+	}
 	public String getUrl() {
 		return url;
 	}
@@ -132,7 +140,8 @@ public class Vehicle {
 	public String toString() {
 		return "Vehicle [id=" + id + ", manufacturer=" + manufacturer + ", make=" + make + ", model=" + model
 				+ ", yearOfMake=" + yearOfMake + ", price=" + price + ", miles=" + miles + ", isUsed=" + isUsed
-				+ ", purchaseDate=" + purchaseDate + ", ageOnLot=" + ageOnLot + ", description=" + description;
+				+ ", purchaseDate=" + purchaseDate + ", ageOnLot=" + ageOnLot + ", description=" + description
+				+ ", isBought=" + isBought + "]";
 	}
 	
 	
