@@ -17,10 +17,11 @@
 
 
 	<div>
-		<h3>Vehicle list</h3>
+		<h3>New Vehicle list</h3>
 		<table class="tableBorder">
 			<tr class="tableBorder">
 				<th>Listing</th>
+				<th>Picture</th>
 				<th>Manufacturer</th>
 				<th>Make/Model/Year</th>
 				<th>Miles</th>
@@ -32,14 +33,14 @@
 			<c:if test="${vehicle.isUsed eq false}">
 				<tr class="tableBorder">
 					<td>${i.count}</td>
-					<td><c:out value="${vehicle.manufacturer}" /></td>
-					<td><c:out
-							value="${vehicle.make}/
-							 ${vehicle.model}/
-			 				${vehicle.yearOfMake}" /></td>
-					<td><c:out value="${vehicle.miles}" /></td>
-					<td><c:out value="${vehicle.price}" /></td>
-					<td><c:out value="${vehicle.purchaseDate}" /></td>
+					<td><img src="${vehicle.url}" width="250rem" height="150rem"></td>
+					<td>${vehicle.manufacturer}</td>
+					<td>${vehicle.make}/
+						${vehicle.model}/
+			 			${vehicle.yearOfMake}</td>
+					<td>${vehicle.miles}</td>
+					<td>${vehicle.price}</td>
+					<td>${vehicle.purchaseDate}</td>
 					<td><a href="vehicle-page?id=${vehicle.id}">View page</a>
 				</tr>
 				</c:if>

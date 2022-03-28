@@ -31,7 +31,7 @@
 		</div>
 		<div>
 			<label for="inputYearofMake">Year of Vehicle</label>
-			<form:input path="yearOfMake" type="date" id="inputYearofMake" />
+			<form:input path="yearOfMake" type="number" id="inputYearofMake" />
 		</div>
 		<div>
 			<label for="inputMiles">Miles</label>

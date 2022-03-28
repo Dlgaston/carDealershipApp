@@ -13,7 +13,7 @@ public class Vehicle {
 	String manufacturer;
 	String make;
 	String model;
-	Date yearOfMake;
+	int yearOfMake;
 	double price;
 	double miles;
 	boolean isUsed = false;
@@ -71,11 +71,11 @@ public class Vehicle {
 		this.model = model;
 	}
 
-	public Date getYearOfMake() {
+	public int getYearOfMake() {
 		return yearOfMake;
 	}
 
-	public void setYearOfMake(Date yearOfMake) {
+	public void setYearOfMake(int yearOfMake) {
 		this.yearOfMake = yearOfMake;
 	}
 

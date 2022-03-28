@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+import com.project.domain.Customer;
 import com.project.domain.Vehicle;
 import com.project.service.VehicleService;
 
@@ -57,8 +57,14 @@ public class VehicleController {
 		}
 			model.addAttribute("vehiclelisting", vehicle);
 			model.addAttribute("discount",vehicleService.discount(vehicle));
-			System.out.println(vehicle.getAgeOnLot());
+			
 		return "vehicle-page";
 		
 	}
+	@GetMapping("/buy-vehicle")
+	public ModelAndView addInventory(Model model, @RequestParam String id, HttpSession session) {
+		Vehicle vehicle = vehicleService.getVehicle(id);
+		return new ModelAndView("buy-vehicle", "customer", new Customer());
+	}
+
 }
