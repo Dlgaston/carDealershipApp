@@ -19,7 +19,7 @@
 	<c:if test="${vehiclelisting.ageOnLot < 120 }">${discount}</c:if>
 	</div>
 	<div>
-	<a href="buy-vehicle?id=${vehicle.id}">BUY VEHICLE</a>
+	<a href="buy-vehicle?id=${vehiclelisting.id}">BUY VEHICLE</a>
 	</div>
 </body>
 </html>
