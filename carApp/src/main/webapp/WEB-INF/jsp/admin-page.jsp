@@ -19,21 +19,16 @@
 				<th>Customer</th>
 				<th>Email</th>
 				<th>Vehicle Vin</th>
-				<th>Make/Model/Year</th>
-				<th>Miles</th>
-				<th>Price</th>
+				<th>Vehicle Cost</th>
 				</tr>
 <c:forEach items="${list}" var="customer" varStatus="i">
 			<tr class="tableBorder">
 			<td>${i.count}</td>
 			<td>${customer.fName} ${customer.lName}</td>
 			<td>${customer.email}</td>
-			<td>${customer.vehicle.id}</td>
-			<td>${customer.vehicle.make} / ${customer.vehicle.model} 
-			/ ${customer.vehicle.yearOfMake}</td>
-			<td>${customer.vehicle.miles}</td>
-			<td>${customer.vehicle.price}</td>
-			
+			<td>${customer.vin}</td>
+			<td>${customer.amountSpent}</td>
+			</tr>
 		</c:forEach>
 		</table>
 		</div>

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.project.domain.Admin;
 import com.project.domain.Customer;
 import com.project.domain.Vehicle;
 
@@ -26,5 +27,13 @@ public class CustomerService {
 	}
 	public List<Customer> getCustomers(){
 		return customers;
+}
+	public Customer isAdmin(Customer customer) {
+		if(customer.getEmail().equals("123@gmail.com") && customer.getPassword().equals("123")){
+			return customer;
+		} else {
+			return null;
+	}
+	
 }
 }

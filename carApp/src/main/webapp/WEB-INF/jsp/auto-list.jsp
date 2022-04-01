@@ -14,8 +14,6 @@
 <div>
 		<a href="/">Home</a>
 	</div>
-
-
 	<div>
 		<h3>New Vehicle list</h3>
 		<table class="tableBorder">

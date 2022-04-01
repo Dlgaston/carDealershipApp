@@ -45,33 +45,20 @@ public class CustomerController {
 	}
 	@GetMapping("/buy-vehicle")
 	public String addCustomer(Model model, @RequestParam int id, HttpSession session) {
-		Vehicle vehicle = vehicleRepository.getById(1);
-		//Vehicle vehicle = vehicleService.findById(id);
-		
+		Vehicle vehicle = vehicleRepository.getById(id);
 		model.addAttribute("vehicle", vehicle);
 		model.addAttribute("customer", new Customer());
-		Customer_And_Vehicle cv = new Customer_And_Vehicle();
-		cv.setVehicle(vehicle);
-		cv.setCustomer(new Customer());
-		model.addAttribute("cv", cv);
 		System.out.println(vehicle);
 		return "buy-vehicle";
 	}
 	@PostMapping("/buy-vehicle")
-	public String handleBuyVehicle(Model model, @ModelAttribute("customer") Customer customer, @ModelAttribute("vehicleOne") Vehicle vehicle,
-			@ModelAttribute("cv") Customer_And_Vehicle cv, HttpSession session) {
-		Vehicle vehicleOne = vehicleRepository.getById(1);
+	public String handleBuyVehicle(Model model,@ModelAttribute("customer") Customer customer,@ModelAttribute("vehicle") Vehicle vehicle,  HttpSession session) {
+		Vehicle vehicleOne = vehicleRepository.findByVin(customer.getVin());
 		vehicleOne.setBought(true);
-		model.getAttribute("customer");
-		model.getAttribute("vehicle");
-        //model.addAttribute("vehicle", vehicleService.getVehicle(vehicle.getId()));
-		model.addAttribute("vehicleOne", vehicleService.findById(1));
-		//cv.getVehicle().setBought(true);
-		customer.setEmail(cv.getCustomer().getEmail());
-		customer.setfName(cv.getCustomer().getfName());
-		customer.setVehicle(vehicleOne);
 		customer.setAmountSpent(vehicleOne.getPrice());
 		customerRepository.save(customer);
+		vehicleRepository.save(vehicleOne);
+		System.out.println(customer);
 		return "index";
 	
 }

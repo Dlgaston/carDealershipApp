@@ -41,8 +41,15 @@ public class VehicleController {
 	
 	@PostMapping("/add-inventory")
 	public String handleAddInventory(Model model, @ModelAttribute("vehicle") Vehicle vehicle, HttpSession session) {
+		
+		try {
 		vehicleService.addVehicle(vehicle);
 		return "index";
+		} catch(Exception e) {
+			model.addAttribute("error", e);
+			model.addAttribute("vehicle", vehicle);
+			return "/add-inventory";
+		}
 }
 	@GetMapping("/auto-list")
 	public String printList(Model model, Vehicle vehicle){

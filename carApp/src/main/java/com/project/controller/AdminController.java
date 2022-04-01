@@ -16,6 +16,7 @@ import com.project.domain.Admin;
 import com.project.service.AdminService;
 import com.project.service.CustomerService;
 import com.project.domain.Customer;
+import com.project.repository.CustomerRepository;
 
 @Controller
 public class AdminController {
@@ -23,6 +24,8 @@ public class AdminController {
 	AdminService adminService;
 	@Autowired
 	CustomerService customerService;
+	@Autowired
+	CustomerRepository customerRepository;
 
 	@GetMapping("/login")
 	public ModelAndView login(Model model) {
@@ -31,7 +34,7 @@ public class AdminController {
 	@PostMapping("/login")
 	public String handleLogin(Model model, @ModelAttribute("admin") Admin admin, HttpSession session) {
 		admin = adminService.isAdmin(admin);
-		List<Customer> customer = customerService.getCustomers();
+		List<Customer> customer = customerRepository.findAll();
 		if(admin != null) {
 			model.addAttribute("list", customer);
 			return "admin-page";

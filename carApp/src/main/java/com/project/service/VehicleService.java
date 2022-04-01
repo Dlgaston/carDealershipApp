@@ -24,6 +24,7 @@ public class VehicleService {
 		} else {
 			vehicle.setUsed(false);
 		}
+		
 			vehicleRepository.save(vehicle);
 		
 	}
@@ -71,7 +72,6 @@ public class VehicleService {
 			if (vehicle.getIsUsed() == false) {
 				System.out.println(vehicle);
 				return vehicles;
-
 			}
 		}
 		return null;

@@ -10,27 +10,31 @@
 <title>Buy Vehicle</title>
 </head>
 <body>
-<form:form modelAttribute="cv" action="/buy-vehicle"
+<form:form modelAttribute="customer" action="/buy-vehicle"
 		method="post">
 			<div>
 			<label for="inputFirstName">First Name</label>
-			<form:input path="customer.fName" type="text" id="inputFirstName" />
+			<form:input path="fName" type="text" id="inputFirstName" />
 		</div>
 		<div>
 			<label for="inputLastName">Last Name</label>
-			<form:input path="customer.lName" type="text" id="inputLastName" />
+			<form:input path="lName" type="text" id="inputLastName" />
 		</div>
 		<div>
 			<label for="inputEmail">Email</label>
-			<form:input path="customer.email" type="email" id="inputEmail" />
+			<form:input path="email" type="email" id="inputEmail" />
 		</div>
 		<div>
 			<label for="inputPassword">Password</label>
-			<form:input path="customer.password" type="password" id="inputPassword" />
+			<form:input path="password" type="password" id="inputPassword" />
+		</div>
+		<div>
+			<label for="inputVin">Vin of vehicle</label>
+			<form:input path="vin" type="text" id="inputVin" />
 		</div>
 	
 		<button type="submit">work</button>
 	</form:form>
-	<div>${vehicle}</div>
+	<div>${vehicle.vin}</div>
 </body>
 </html>

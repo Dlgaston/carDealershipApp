@@ -32,11 +32,8 @@ public class Customer {
 	String password;
 	@Transient
 	boolean isLoggedIn;
-	@Transient
-	Vehicle vehicle;
-	@OneToMany()
-	@JoinColumn(name="vehicle_id")	
-	List<Vehicle> vehicles;
+	@Column(name="vin")
+	String vin;
 
 	public Customer(){}
 	
@@ -54,22 +51,14 @@ public class Customer {
 
 
 
-	public Vehicle getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Vehicle vehicle) {
-		this.vehicle = vehicle;
-	}
-
-	public List<Vehicle> getVehicles() {
-		return vehicles;
+	public String getVin() {
+		return vin;
 	}
 
 
 
-	public void setVehicles(List<Vehicle> vehicles) {
-		this.vehicles = vehicles;
+	public void setVin(String vin) {
+		this.vin = vin;
 	}
 
 
@@ -122,10 +111,12 @@ public class Customer {
 		this.isLoggedIn = isLoggedIn;
 	}
 
+	
+
 	@Override
 	public String toString() {
-		return "Customer [receipt=" + amountSpent + ", fName=" + fName + ", lName=" + lName
-				+ ", email=" + email + " vehicle=" + vehicle + " ]";
+		return "Customer [id=" + id + ", amountSpent=" + amountSpent + ", fName=" + fName + ", lName=" + lName
+				+ ", email=" + email + ", password=" + password + ", isLoggedIn=" + isLoggedIn + ", vin=" + vin + "]";
 	}
 	
 	

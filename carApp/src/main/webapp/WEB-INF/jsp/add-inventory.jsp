@@ -11,11 +11,13 @@
 </head>
 <body>
 
+<a href="/">Home</a>
+
 	<form:form modelAttribute="vehicle" action="/add-inventory"
 		method="post">
 			<div>
 			<label for="inputVinNumber">Vin Number</label>
-			<form:input path="id" type="text" id="inputVinNumber" />
+			<form:input path="vin" type="text" id="inputVinNumber" />
 		</div>
 		<div>
 			<label for="inputManufacturer">Manufacturer</label>
@@ -51,6 +53,9 @@
 		</div>
 	
 		<button type="submit">work</button>
+		<div>
+<c:if test="${error != null}">No negative numbers</c:if>
+</div>
 	</form:form>
 </body>
 </html>

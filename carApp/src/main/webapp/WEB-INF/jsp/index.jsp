@@ -14,13 +14,10 @@
 	<div>
 		<a href="/auto-list">Auto list</a>
 	</div>
-	<div>${customer.vehicle.id}</div>
+	<div>${customer.vin}</div>
 	<div>${vehicleOne }</div>
 	<div>${customer.fName}</div>
 	<div>${customer.amountSpent}</div>
-	<div>${cv}</div>
-	<div>${cv.customer}</div>
-	<div>${cv.vehicle}</div>
 	
 	
 	<div><a href="/create-account">Create Account</a></div>

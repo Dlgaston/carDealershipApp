@@ -4,12 +4,17 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -24,30 +29,33 @@ public class Vehicle {
 	@Column(name="vin")
 	private String vin;
 	@Column(name="manufacturer")
-	String manufacturer;
+	private String manufacturer;
 	@Column(name="make")
-	String make;
+	private String make;
 	@Column(name="model")
-	String model;
+	private String model;
 	@Column(name="year_of_make")
-	int yearOfMake;
+	private int yearOfMake;
 	@Column(name="price")
-	double price;
+	private double price;
 	@Column(name="miles")
-	double miles;
+	private double miles;
 	@Column(name="is_used")
-	boolean isUsed = false;
+	private boolean isUsed = false;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name="purchase_date")
-	LocalDate purchaseDate;
+	private LocalDate purchaseDate;
 	@Column(name="age_on_lot")
-	Integer ageOnLot;
+	private Integer ageOnLot;
 	@Column(name="description")
-	String description;
+	private String description;
 	@Column(name="url")
-	String url;
+	private String url;
 	@Column(name="is_bought")
-	boolean isBought = false;
+	private boolean isBought = false;
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="customer_id")	
+	Customer customer;
 
 	public Vehicle(){
 		

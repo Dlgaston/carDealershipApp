@@ -9,8 +9,9 @@
 <link rel="stylesheet" href="StyleSheet.css" type="text/css">
 <title>Login</title>
 </head>
-<body>
-	<form:form modelAttribute="admin" action="/login" method="post">
+<body><label for = "customerLogin">Admin</label>
+
+		<form:form modelAttribute="admin" action="/login" method="post" id="adminLogin">
 			
 					<div>
 					<label for="inputEmail4">Email</label>
