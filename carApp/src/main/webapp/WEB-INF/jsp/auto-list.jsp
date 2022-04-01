@@ -31,6 +31,7 @@
 			</tr>
 			<c:forEach items="${vehicleList}" var="vehicle" varStatus="i">
 			<c:if test="${vehicle.isUsed eq false}">
+			<c:if test="${vehicle.isBought eq false}">
 				<tr class="tableBorder">
 					<td>${i.count}</td>
 					<td><img src="${vehicle.url}" width="250rem" height="150rem"></td>
@@ -43,6 +44,7 @@
 					<td>${vehicle.purchaseDate}</td>
 					<td><a href="vehicle-page?id=${vehicle.id}">View page</a>
 				</tr>
+				</c:if>
 				</c:if>
 			</c:forEach>
 		</table>
@@ -62,6 +64,7 @@
 			</tr>
 			<c:forEach items="${vehicleList}" var="vehicle" varStatus="i">
 				<c:if test="${vehicle.isUsed eq true}">
+				<c:if test="${vehicle.isBought eq false}">
 				<tr class="tableBorder">
 					<td>${i.count}</td>
 					<td><c:out value="${vehicle.manufacturer}" /></td>
@@ -74,6 +77,7 @@
 					<td><c:out value="${vehicle.purchaseDate}" /></td>
 					<td><a href="vehicle-page?id=${vehicle.id}">View page</a>
 				</tr>
+				</c:if>
 				</c:if>
 				
 			</c:forEach>

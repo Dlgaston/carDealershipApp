@@ -13,15 +13,18 @@ public class CustomerService {
 	List<Customer> customers = new ArrayList<Customer>();
 	
 
-	public void addCustomer(Customer c) {
+	public void addCustomer(Customer customer) {
 		
-			customers.add(c);
+			customers.add(customer);
 	}
-	public double getReceipt(Customer c, Vehicle vehicle) {
+	public double getReceipt(Customer customer) {
 		double receipt=0;
-		c.setAmountSpent(vehicle.getPrice());
-		receipt = c.getAmountSpent();
+		customer.getAmountSpent();
+		receipt = customer.getAmountSpent();
 		
 		return receipt;
 	}
+	public List<Customer> getCustomers(){
+		return customers;
+}
 }

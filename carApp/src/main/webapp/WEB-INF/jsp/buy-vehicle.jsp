@@ -6,29 +6,31 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="StyleSheet.css" type="text/css">
 <title>Buy Vehicle</title>
 </head>
 <body>
-<form:form modelAttribute="customer" action="/buy-vehicle"
+<form:form modelAttribute="cv" action="/buy-vehicle"
 		method="post">
 			<div>
 			<label for="inputFirstName">First Name</label>
-			<form:input path="fName" type="text" id="inputFirstName" />
+			<form:input path="customer.fName" type="text" id="inputFirstName" />
 		</div>
 		<div>
 			<label for="inputLastName">Last Name</label>
-			<form:input path="lName" type="text" id="inputLastName" />
+			<form:input path="customer.lName" type="text" id="inputLastName" />
 		</div>
 		<div>
 			<label for="inputEmail">Email</label>
-			<form:input path="email" type="email" id="inputEmail" />
+			<form:input path="customer.email" type="email" id="inputEmail" />
 		</div>
 		<div>
 			<label for="inputPassword">Password</label>
-			<form:input path="password" type="password" id="inputPassword" />
+			<form:input path="customer.password" type="password" id="inputPassword" />
 		</div>
-		<button type="submit">Fucking work</button>
+	
+		<button type="submit">work</button>
 	</form:form>
-
+	<div>${vehicle}</div>
 </body>
 </html>

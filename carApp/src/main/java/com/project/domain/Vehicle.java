@@ -5,23 +5,48 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.time.temporal.ChronoUnit;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.springframework.format.annotation.DateTimeFormat;
 
-
+@Entity
+@Table(name="vehicle")
 public class Vehicle {
-	private String id;
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id; 
+	@Column(name="vin")
+	private String vin;
+	@Column(name="manufacturer")
 	String manufacturer;
+	@Column(name="make")
 	String make;
+	@Column(name="model")
 	String model;
+	@Column(name="year_of_make")
 	int yearOfMake;
+	@Column(name="price")
 	double price;
+	@Column(name="miles")
 	double miles;
+	@Column(name="is_used")
 	boolean isUsed = false;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name="purchase_date")
 	LocalDate purchaseDate;
+	@Column(name="age_on_lot")
 	Integer ageOnLot;
+	@Column(name="description")
 	String description;
+	@Column(name="url")
 	String url;
+	@Column(name="is_bought")
 	boolean isBought = false;
 
 	public Vehicle(){
@@ -37,16 +62,23 @@ public class Vehicle {
 	}
 	
 
-	public String getId() {
+	public int getId() {
 		return id;
 	}
 
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
+	
 
 
+	public String getVin() {
+		return vin;
+	}
+	public void setVin(String vin) {
+		this.vin = vin;
+	}
 	public String getManufacturer() {
 		return manufacturer;
 	}

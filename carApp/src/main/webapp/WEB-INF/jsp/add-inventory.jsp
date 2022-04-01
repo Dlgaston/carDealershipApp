@@ -50,7 +50,7 @@
 			<form:input path="url" type="url" id="inputUrl" />
 		</div>
 	
-		<button type="submit">Fucking work</button>
+		<button type="submit">work</button>
 	</form:form>
 </body>
 </html>

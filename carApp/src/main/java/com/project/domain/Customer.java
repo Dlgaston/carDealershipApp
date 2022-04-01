@@ -1,14 +1,58 @@
 package com.project.domain;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name="customer")
 public class Customer {
-	Vehicle vehicle;
+	@Id
+	@Column(name="id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int id;
+	@Column(name="amount_spent")
 	double amountSpent;
+	@Column(name="fName")
 	String fName;
+	@Column(name="lName")
 	String lName;
+	@Column(name="email")
 	String email;
+	@Column(name="password")
 	String password;
+	@Transient
+	boolean isLoggedIn;
+	@Transient
+	Vehicle vehicle;
+	@OneToMany()
+	@JoinColumn(name="vehicle_id")	
+	List<Vehicle> vehicles;
 
 	public Customer(){}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
 
 	public Vehicle getVehicle() {
 		return vehicle;
@@ -17,6 +61,18 @@ public class Customer {
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
 	}
+
+	public List<Vehicle> getVehicles() {
+		return vehicles;
+	}
+
+
+
+	public void setVehicles(List<Vehicle> vehicles) {
+		this.vehicles = vehicles;
+	}
+
+
 
 	public double getAmountSpent() {
 		return amountSpent;
@@ -55,6 +111,15 @@ public class Customer {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+
+	public boolean getIsLoggedIn() {
+		return isLoggedIn;
+	}
+
+	public void setLoggedIn(boolean isLoggedIn) {
+		this.isLoggedIn = isLoggedIn;
 	}
 
 	@Override

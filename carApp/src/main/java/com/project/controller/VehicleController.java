@@ -16,6 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.project.domain.Customer;
 import com.project.domain.Vehicle;
+import com.project.repository.VehicleRepository;
 import com.project.service.VehicleService;
 
 @Controller
@@ -23,7 +24,10 @@ public class VehicleController {
 	
 	@Autowired
 	VehicleService vehicleService;
-
+	@Autowired
+	VehicleRepository vehicleRepository;
+	
+	
 	@GetMapping("/")
 	public String welcome(Model model) {
 		return "index";
@@ -38,19 +42,18 @@ public class VehicleController {
 	@PostMapping("/add-inventory")
 	public String handleAddInventory(Model model, @ModelAttribute("vehicle") Vehicle vehicle, HttpSession session) {
 		vehicleService.addVehicle(vehicle);
-		System.out.println(vehicle);
 		return "index";
 }
 	@GetMapping("/auto-list")
 	public String printList(Model model, Vehicle vehicle){
-		List<Vehicle> vehicleList = vehicleService.getVehicles();
+		List<Vehicle> vehicleList = vehicleRepository.findAll();
 		model.addAttribute("vehicleList", vehicleList);
 		return "auto-list";
 		
 	}
 	@GetMapping("/vehicle-page")
-	public String vehiclePage(Model model, @RequestParam String id, HttpSession session) {
-		Vehicle vehicle = vehicleService.getVehicle(id);
+	public String vehiclePage(Model model, @RequestParam int id, HttpSession session) {
+		Vehicle vehicle = vehicleRepository.findById(id).get();
 		if(vehicle == null) {
 			System.out.println("No vehicle");
 			return "index";
@@ -61,10 +64,11 @@ public class VehicleController {
 		return "vehicle-page";
 		
 	}
-	@GetMapping("/buy-vehicle")
-	public ModelAndView addInventory(Model model, @RequestParam String id, HttpSession session) {
-		Vehicle vehicle = vehicleService.getVehicle(id);
-		return new ModelAndView("buy-vehicle", "customer", new Customer());
-	}
+	@GetMapping("/error")
+	public String error(Model model){
+		
+		return "error";
+		
 
+}
 }
