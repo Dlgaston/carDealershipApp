@@ -2,38 +2,48 @@ package com.project.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
+import javax.swing.text.html.Option;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.project.domain.Admin;
+
 import com.project.domain.Customer;
 import com.project.domain.Vehicle;
+import com.project.repository.CustomerRepository;
+
 
 @Service
 public class CustomerService {
 	List<Customer> customers = new ArrayList<Customer>();
 	
+	@Autowired
+	CustomerRepository customerRepository;
+	
+	
 
 	public void addCustomer(Customer customer) {
-		
-			customers.add(customer);
+
+		customers.add(customer);
 	}
-	public double getReceipt(Customer customer) {
-		double receipt=0;
-		customer.getAmountSpent();
-		receipt = customer.getAmountSpent();
-		
-		return receipt;
-	}
-	public List<Customer> getCustomers(){
+
+	public List<Customer> getCustomers() {
 		return customers;
-}
-	public Customer isAdmin(Customer customer) {
-		if(customer.getEmail().equals("123@gmail.com") && customer.getPassword().equals("123")){
-			return customer;
+	}
+
+	
+	public Customer logIn(String email, String password) {
+		Customer logInCustomer = customerRepository.logIn(email, password);
+		if(logInCustomer != null) {
+			return logInCustomer;
 		} else {
 			return null;
+		}
 	}
-	
-}
+
+	public void buyVehicle(Customer c, Vehicle v) {
+
+	}
 }

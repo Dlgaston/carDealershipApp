@@ -28,13 +28,8 @@
 			<label for="inputPassword">Password</label>
 			<form:input path="password" type="password" id="inputPassword" />
 		</div>
-		<div>
-			<label for="inputVin">Vin of vehicle</label>
-			<form:input path="vin" type="text" id="inputVin" />
-		</div>
 	
 		<button type="submit">work</button>
 	</form:form>
-	<div>${vehicle.vin}</div>
 </body>
 </html>

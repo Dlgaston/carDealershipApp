@@ -15,10 +15,6 @@
 
 	<form:form modelAttribute="vehicle" action="/add-inventory"
 		method="post">
-			<div>
-			<label for="inputVinNumber">Vin Number</label>
-			<form:input path="vin" type="text" id="inputVinNumber" />
-		</div>
 		<div>
 			<label for="inputManufacturer">Manufacturer</label>
 			<form:input path="manufacturer" type="text" id="inputManufacturer" />
@@ -46,6 +42,10 @@
 		<div>
 			<label for="inputPurchaseDate">Date of Purchase</label>
 			<form:input path="purchaseDate" type="date" id="inputPurchaseDate" />
+		</div>
+		<div>
+			<label for="inputDescription">Description</label>
+			<form:input path="description" type="text" id="inputDescription" />
 		</div>
 		<div>
 			<label for="inputURL">Picture of Vehicle</label>

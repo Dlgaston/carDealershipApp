@@ -52,14 +52,14 @@ public class VehicleController {
 		}
 }
 	@GetMapping("/auto-list")
-	public String printList(Model model, Vehicle vehicle){
+	public String printList(Model model){
 		List<Vehicle> vehicleList = vehicleRepository.findAll();
 		model.addAttribute("vehicleList", vehicleList);
 		return "auto-list";
 		
 	}
 	@GetMapping("/vehicle-page")
-	public String vehiclePage(Model model, @RequestParam int id, HttpSession session) {
+	public String vehiclePage(Model model, @RequestParam Integer id, HttpSession session) {
 		Vehicle vehicle = vehicleRepository.findById(id).get();
 		if(vehicle == null) {
 			System.out.println("No vehicle");

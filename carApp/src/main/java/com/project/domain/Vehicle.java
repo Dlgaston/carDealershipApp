@@ -25,9 +25,7 @@ public class Vehicle {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id; 
-	@Column(name="vin")
-	private String vin;
+	private Integer id; 
 	@Column(name="manufacturer")
 	private String manufacturer;
 	@Column(name="make")
@@ -35,11 +33,11 @@ public class Vehicle {
 	@Column(name="model")
 	private String model;
 	@Column(name="year_of_make")
-	private int yearOfMake;
+	private Integer yearOfMake;
 	@Column(name="price")
-	private double price;
+	private Double price;
 	@Column(name="miles")
-	private double miles;
+	private Double miles;
 	@Column(name="is_used")
 	private boolean isUsed = false;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -53,14 +51,11 @@ public class Vehicle {
 	private String url;
 	@Column(name="is_bought")
 	private boolean isBought = false;
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="customer_id")	
-	Customer customer;
 
 	public Vehicle(){
 		
 	}
-	public Vehicle(double miles) {
+	public Vehicle(Double miles) {
 		if(this.miles >= 1000) {
 			this.isUsed = true;
 		}else {
@@ -70,23 +65,15 @@ public class Vehicle {
 	}
 	
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
-
-
-	public String getVin() {
-		return vin;
-	}
-	public void setVin(String vin) {
-		this.vin = vin;
-	}
 	public String getManufacturer() {
 		return manufacturer;
 	}
@@ -111,19 +98,19 @@ public class Vehicle {
 		this.model = model;
 	}
 
-	public int getYearOfMake() {
+	public Integer getYearOfMake() {
 		return yearOfMake;
 	}
 
-	public void setYearOfMake(int yearOfMake) {
+	public void setYearOfMake(Integer yearOfMake) {
 		this.yearOfMake = yearOfMake;
 	}
 
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
 
@@ -133,11 +120,11 @@ public class Vehicle {
 	public void setUsed(boolean isUsed) {
 		this.isUsed = isUsed;
 	}
-	public double getMiles() {
+	public Double getMiles() {
 		return miles;
 	}
 
-	public void setMiles(double miles) {
+	public void setMiles(Double miles) {
 		this.miles = miles;
 	}
 
@@ -163,7 +150,7 @@ public class Vehicle {
 		this.description = description;
 	}
 	
-
+	
 	public boolean getIsBought() {
 		return isBought;
 	}

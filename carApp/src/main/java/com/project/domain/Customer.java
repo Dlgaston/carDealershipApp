@@ -19,56 +19,25 @@ public class Customer {
 	@Id
 	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	int id;
-	@Column(name="amount_spent")
-	double amountSpent;
-	@Column(name="fName")
+	Integer id;
+	@Column(name="first_name")
 	String fName;
-	@Column(name="lName")
+	@Column(name="last_name")
 	String lName;
 	@Column(name="email")
 	String email;
 	@Column(name="password")
 	String password;
-	@Transient
-	boolean isLoggedIn;
-	@Column(name="vin")
-	String vin;
+	@Column(name = "is_admin")
+	boolean isAdmin;
+	
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn(name="customer_id")
+	List<Vehicle> vehicle;
+	
 
 	public Customer(){}
 	
-	
-
-	public int getId() {
-		return id;
-	}
-
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-
-
-	public String getVin() {
-		return vin;
-	}
-
-
-
-	public void setVin(String vin) {
-		this.vin = vin;
-	}
-
-
-
-	public double getAmountSpent() {
-		return amountSpent;
-	}
-	public void setAmountSpent(double amountSpent) {
-		this.amountSpent = amountSpent;
-	}
 
 	public String getfName() {
 		return fName;
@@ -102,21 +71,44 @@ public class Customer {
 		this.password = password;
 	}
 	
-
-	public boolean getIsLoggedIn() {
-		return isLoggedIn;
-	}
-
-	public void setLoggedIn(boolean isLoggedIn) {
-		this.isLoggedIn = isLoggedIn;
-	}
-
 	
+
+	public boolean getisAdmin() {
+		return isAdmin;
+	}
+
+
+	public void setAdmin(boolean isAdmin) {
+		isAdmin = false;
+		this.isAdmin = isAdmin;
+	}
+
+
+	public List<Vehicle> getVehicle() {
+		return vehicle;
+	}
+
+
+	public void setVehicle(List<Vehicle> vehicle) {
+		this.vehicle = vehicle;
+	}
+
+
+	public Integer getId() {
+		return id;
+	}
+
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+
 
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", amountSpent=" + amountSpent + ", fName=" + fName + ", lName=" + lName
-				+ ", email=" + email + ", password=" + password + ", isLoggedIn=" + isLoggedIn + ", vin=" + vin + "]";
+		return "Customer [id=" + id + ", fName=" + fName + ", lName=" + lName + ", email=" + email + ", password="
+				+ password + ", isAdmin=" + isAdmin + ", vehicle=" + vehicle + "]";
 	}
 	
 	

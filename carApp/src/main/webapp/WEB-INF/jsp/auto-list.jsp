@@ -11,6 +11,7 @@
 <title>vehicle list</title>
 </head>
 <body>
+<h1>Vehicle Inventory, Hello<c:if test="${user.fName != null}"> ${user.fName}</c:if></h1>
 <div>
 		<a href="/">Home</a>
 	</div>

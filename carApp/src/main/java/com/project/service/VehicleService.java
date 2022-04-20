@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.project.domain.Vehicle;
+import com.project.repository.CustomerRepository;
 import com.project.repository.VehicleRepository;
 
 @Service
@@ -17,6 +18,9 @@ public class VehicleService {
 	
 	@Autowired
 	VehicleRepository vehicleRepository;
+	@Autowired
+	CustomerRepository customerRepository;
+	
 	
 	public void addVehicle(Vehicle vehicle) {
 		if (vehicle.getMiles() >= 1000) {
@@ -94,5 +98,6 @@ public class VehicleService {
 		return originalPrice;
 
 	}
-
+	
+	
 }

@@ -18,16 +18,12 @@
 				<th>Customer Log Number</th>
 				<th>Customer</th>
 				<th>Email</th>
-				<th>Vehicle Vin</th>
-				<th>Vehicle Cost</th>
 				</tr>
 <c:forEach items="${list}" var="customer" varStatus="i">
 			<tr class="tableBorder">
 			<td>${i.count}</td>
 			<td>${customer.fName} ${customer.lName}</td>
 			<td>${customer.email}</td>
-			<td>${customer.vin}</td>
-			<td>${customer.amountSpent}</td>
 			</tr>
 		</c:forEach>
 		</table>

@@ -9,9 +9,9 @@
 <link rel="stylesheet" href="StyleSheet.css" type="text/css">
 <title>Login</title>
 </head>
-<body><label for = "customerLogin">Admin</label>
+<body><label for = "customerLogin">Log-In</label>
 
-		<form:form modelAttribute="admin" action="/login" method="post" id="adminLogin">
+		<form:form modelAttribute="customer" action="/login" method="post" id="Login">
 			
 					<div>
 					<label for="inputEmail4">Email</label>
@@ -22,7 +22,7 @@
 					<form:input path="password" type="password" id="inputPassword4" />
 				</div>
 			
-			<button type="submit" class="btn btn-primary">Sign Up</button>
+			<button type="submit" class="btn btn-primary">Log-In</button>
 		</form:form>
 </body>
 </html>
